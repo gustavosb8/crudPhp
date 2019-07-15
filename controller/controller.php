@@ -17,18 +17,47 @@ if(isset($_POST['salvar'])){
 	$cpf  =  str_replace($pontos, "", $_POST['cpf']);
 	$data =	 $_POST['dtnascimento'];
 
-	echo 'CPF SEM TRATRA: '.$_POST['cpf'].'<br>';
-	echo 'CPF TRATRADO: '.$cpf.'<br>';
-	echo 'DATA: '.$data;
-
 	if(salvarPessoa($nome, $sexo, $cpf, $data)){
-		$_SESSION['mensagem'][0] = '1';
-		$_SESSION['mensagem'][1] = 'Cadastro realizado com sucesso';
+		atualizaMensagem('1', 'Cadastro realizado com sucesso');
 	}else{
-		$_SESSION['mensagem'][0] = '2';
-		$_SESSION['mensagem'][1] = 'Cadastro não realizado';
+		atualizaMensagem('2', 'Cadastro não realizado');
 	}
 	header('Location: ../view/index.php'); 
+}
+
+if(isset($_POST['editar'])){
+
+	$pontos = array(",", ".", "-");
+
+	$id   =  $_POST['id'];
+	$nome =  $_POST['nome'];
+	$sexo =  $_POST['sexo'];
+	$cpf  =  str_replace($pontos, "", $_POST['cpf']);
+	$data =	 $_POST['dtnascimento'];
+
+	if(editaPessoa($id, $nome, $sexo, $cpf, $data)){
+		atualizaMensagem('1', 'Registro editado com sucesso');
+	}else{
+		atualizaMensagem('2', 'Registro não editado');
+	}
+	header('Location: ../view/index.php'); 
+}
+
+if(isset($_GET['excluir'])){
+
+	$id   =  $_GET['excluir'];
+
+	if(excluiPessoa($id)){
+		atualizaMensagem('1', 'Registro removido com sucesso');
+	}else{
+		atualizaMensagem('2', 'Registro não removido');
+	}
+	header('Location: ../view/index.php'); 
+}
+
+function atualizaMensagem($tipo, $mensagem){
+	$_SESSION['mensagem'][0] = $tipo;
+	$_SESSION['mensagem'][1] = $mensagem;
 }
 
 ?>

@@ -57,6 +57,7 @@ $pessoas = buscaPessoas();
 				
 
 				<?php
+
 				foreach ($pessoas as $pessoa) {
 					echo '<tr>';
 					echo '<td scope="row">'.$pessoa['ID_PESSOA'].'</td>';
@@ -72,8 +73,9 @@ $pessoas = buscaPessoas();
 					<td>
 					<div>
 					
-						<a href="#" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-edit"></span></a>
-						<a href="#" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-trash"></span></a>
+						<a href="./cadastro.php?editar='.$pessoa['ID_PESSOA'].'" class="btn btn-info btn"><span class="glyphicon glyphicon-edit"></span></a>
+						
+						<a href="../controller/controller.php?excluir='.$pessoa['ID_PESSOA'].'" class="btn btn-danger btn"><span class="glyphicon glyphicon-trash"></span></a>
 					
 					</div>
 					</td>';
