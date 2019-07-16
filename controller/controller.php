@@ -1,7 +1,5 @@
 <?php
 
-$url = 'http://localhost/gustavo/';
-
 if(!isset($_SESSION['mensagem'])){
 	session_start();
 }
@@ -24,7 +22,7 @@ if(isset($_POST['salvar'])){
 	}else{
 		atualizaMensagem('2', 'Cadastro não realizado');
 	}
-	header('Location: ../view/lista.php'); 
+	redirect();
 }
 
 if(isset($_POST['editar'])){
@@ -42,7 +40,7 @@ if(isset($_POST['editar'])){
 	}else{
 		atualizaMensagem('2', 'Registro não editado');
 	}
-	header('Location: ../view/lista.php'); 
+	redirect();
 }
 
 if(isset($_GET['excluir'])){
@@ -54,12 +52,16 @@ if(isset($_GET['excluir'])){
 	}else{
 		atualizaMensagem('2', 'Registro não removido');
 	}
-	header('Location: ../view/lista.php'); 
+	redirect();
 }
 
 function atualizaMensagem($tipo, $mensagem){
 	$_SESSION['mensagem'][0] = $tipo;
 	$_SESSION['mensagem'][1] = $mensagem;
+}
+
+function redirect(){
+	header('Location: ../view/lista.php'); 
 }
 
 ?>

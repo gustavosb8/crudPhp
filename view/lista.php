@@ -2,6 +2,8 @@
 
 require_once('../model/modelPessoa.php');
 
+session_start();
+
 $pessoas = buscaPessoas();
 
 ?>
@@ -21,6 +23,7 @@ $pessoas = buscaPessoas();
 		<?php
 
 			if(isset($_SESSION['mensagem'])){
+
 				if($_SESSION['mensagem'][0]){
 					echo '<div class="alert alert-success alert-dismissible">
 							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
