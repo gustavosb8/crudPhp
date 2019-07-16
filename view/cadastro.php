@@ -6,7 +6,6 @@
 
 	if(isset($_GET['editar']) && $_GET['editar'] != 0){
 		$pessoa = buscaPessoa($_GET['editar'])[0];
-		var_dump($pessoa);
 	}
 
 
@@ -61,7 +60,7 @@
 
 			<div class="col-md-offset-8">
 				<button class="btn btn-success col-md-4" name="<?php echo ($pessoa != null ? 'editar' : 'salvar')?>">Salvar</button>
-				<a href="./index.php" class="btn btn-info col-md-4 col-md-offset-1">Voltar</a>
+				<a href="../view/lista.php" class="btn btn-info col-md-4 col-md-offset-1">Voltar</a>
 			</div>
 		</form>
 

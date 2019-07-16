@@ -1,9 +1,6 @@
 <?php
 
-
 require_once('../DB/conectionFactory.php');
-
-
 
 function inserePessoa($nome, $sexo, $cpf, $data){
 

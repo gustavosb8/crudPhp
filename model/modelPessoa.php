@@ -2,7 +2,6 @@
 
 require_once('../consultas/pessoa.php');
 
-
 function salvarPessoa($nome, $sexo, $cpf, $data){
 	return inserePessoa($nome, $sexo, $cpf, $data);
 }
