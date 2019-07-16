@@ -41,7 +41,7 @@ $pessoas = buscaPessoas();
 
 		<h2>Lista de Pessoas</h2>
 
-		<table class="table">
+		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th scope="col">ID</th>
